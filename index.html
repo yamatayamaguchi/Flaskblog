@@ -4,6 +4,24 @@
 <article>
   <h2>ホーム画面</h2>
   <p>こちらはホーム画面です。</p>
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+       <ul>
+       {% for message in messages %}
+            <li>{{ message }}</li>
+       {% endfor %}
+       </ul>
+      {% endif %}
+  {% endwith %}
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+       <ul>
+       {% for message in messages %}
+            <li>{{ message }}</li>
+       {% endfor %}
+       </ul>
+      {% endif %}
+  {% endwith %}    
   {% for post in posts %}
   <h2>{{post.title}}</h2>
   <ul>

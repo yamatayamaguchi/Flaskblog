@@ -64,6 +64,7 @@ def update(id):
         post.title = request.form.get("title")
         post.body = request.form.get("body")
         db.session.commit()
+        flash("投稿を更新しました")
         return redirect("/")
 
 @app.route("/<int:id>/delete",methods=["GET"])
@@ -71,6 +72,7 @@ def delete(id):
     post = Post.query.get(id)
     db.session.delete(post)
     db.session.commit()
+    flash("投稿を削除しました")
     return redirect("/")
 
 @app.route("/signup",methods=["GET","POST"])
